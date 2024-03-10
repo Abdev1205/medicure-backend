@@ -34,3 +34,7 @@ export const fetchSubjects = async(req, res) => {
         });
     }
 }
+
+export const Add = async (req, res) => {
+    
+}
