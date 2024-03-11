@@ -1,9 +1,9 @@
 import express from "express";
 import  {testApi} from  "../controllers/testingControllers.js"
-import  {generateQuiz}  from "../controllers/openAIThreadController.js"
 import {addSubject, fetchSubjects} from "../controllers/subjectController.js"
 import {isAuthenticated} from "../middlewares/isAuthenticated.js"
-import { getMyProfile, login, logout, register } from "../controllers/userController.js";
+import { getMyProfile, login, logout, register } from "../controllers/userController.js"
+import { generateQuiz} from "../controllers/openAIThreadController.js"
 
 const router = express.Router();
 
