@@ -12,7 +12,7 @@ app.use(bodyParser.json({limit: '35mb'}));
 // adding middleware
 app.use(
   cors({
-    origin: ["http://localhost:3000/"],
+    origin: ["http://localhost:3000"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -28,7 +28,7 @@ config({
   path: ".env"
 });
 
-const PORT = process.env.PORT || 4000;
+const PORT = 4000;
 app.listen(PORT, () => {
   console.log(`server is listening to ${PORT} port`);
 })
