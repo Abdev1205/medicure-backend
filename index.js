@@ -7,7 +7,7 @@ import connectDb from "./Db/connect.js";
 import cookieParser from "cookie-parser";
 
 const app = express();
-app.use(bodyParser.json({limit: '35mb'}));
+app.use(bodyParser.json({ limit: '35mb' }));
 
 // adding middleware
 app.use(
@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api', routes);
 
-console.log(process.env.FRONTEND_URL)
+console.log("Frontend Server : ", process.env.FRONTEND_URL)
 
 config({
   path: ".env"
