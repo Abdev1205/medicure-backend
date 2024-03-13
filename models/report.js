@@ -23,15 +23,8 @@ const schema = new mongoose.Schema({
     type: String,
   },
   parameters: {
-    // inference: { type: String },
-    // akiec: { type: String },
-    // bcc: { type: String },
-    // bkl: { type: String },
-    // df: { type: String },
-    // mel: { type: String },
-    // nv: { type: String },
-    // vasc: {type: String}
-    type : String
+    type: Object,
+    required: true
   },
   img: {
     type: String,

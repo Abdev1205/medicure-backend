@@ -1,9 +1,9 @@
 import express from "express";
-import  {testApi} from  "../controllers/testingControllers.js"
-import {addSubject, fetchSubjects} from "../controllers/subjectController.js"
-import {isAuthenticated} from "../middlewares/isAuthenticated.js"
+import { testApi } from "../controllers/testingControllers.js"
+import { addSubject, fetchSubjects } from "../controllers/subjectController.js"
+import { isAuthenticated } from "../middlewares/isAuthenticated.js"
 import { getMyProfile, login, logout, register } from "../controllers/userController.js"
-import { generateQuiz} from "../controllers/openAIThreadController.js"
+import { generateQuiz } from "../controllers/openAIThreadController.js"
 import { sendReport } from "../controllers/getReport.js";
 const router = express.Router();
 
@@ -15,7 +15,7 @@ router.get('/fetchSubjects', fetchSubjects);
 
 // Report IGNORE QUIZ
 router.post('/generate', generateQuiz);
-router.post("/reports", sendReport);
+router.get("/reports", sendReport);
 
 // user
 router.post("/register", register);
