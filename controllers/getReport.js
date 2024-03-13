@@ -1,7 +1,7 @@
 import { Reports } from "../models/report.js";
 
 export const sendReport = async (req, res) => {
-  const reportId = req.query.id;;
+  const reportId = req.query.id;
   console.log("Backend" + reportId);
   try {
     const report = await Reports.findById(reportId);

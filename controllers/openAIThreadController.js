@@ -62,24 +62,34 @@ const callAssistant = async (data) => {
 };
 
 export const generateQuiz = async (req, res) => {
-  const { patientData } = req.body;
-  console.log(patientData);
+  // const { patientData } = req.body;
+  // console.log(req.body);
+  let patientData;
+  patientData = {
+    akiec: req.body.akiec,
+    bcc: req.body.bcc,
+    bkl: req.body.bkl,
+    df: req.body.df,
+    mel: req.body.mel,
+    nv: req.body.nv,
+    vasc: req.body.vasc,
+    _inference: req.body._inference
+  }
   try {
     const data = await callAssistant(patientData);
-    const result = await Reports.create({ Parameters: patientData, analysis: data });
+    const result = await Reports.create({ parameters: patientData, analysis: data, img: req?.body?.image });
 
     if (result)
-      console.log("this is report data response", result)
-    res.status(200).send({
-      success: true,
-      id: result._id,
-      data: result.analysis,
-    });
+      // console.log("this is report data response", result)
+      res.status(200).send({
+        success: true,
+        report: result
+      });
   } catch (e) {
     console.log(e);
     res.status(500).json({
       success: false,
-      message: "Error fetching report from DB",
+      message: e,
     });
   }
 };
