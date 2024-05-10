@@ -1,19 +1,16 @@
 import express from "express";
 import { testApi } from "../controllers/testingControllers.js"
-import { addSubject, fetchSubjects } from "../controllers/subjectController.js"
 import { isAuthenticated } from "../middlewares/isAuthenticated.js"
-import { getMyProfile, login, logout, register } from "../controllers/userController.js"
+import { register } from "../controllers/AuthController/register.js"
+import { login } from "../controllers/AuthController/login.js"
+import { logout } from "../controllers/AuthController/logout.js"
 import { generateQuiz } from "../controllers/openAIThreadController.js"
 import { sendReport } from "../controllers/getReport.js";
 const router = express.Router();
 
 router.get('/testing', testApi);
 
-// subjects
-router.post('/addSubjects', addSubject);
-router.get('/fetchSubjects', fetchSubjects);
-
-// Report IGNORE QUIZ
+// Report for disease
 router.post('/generate', generateQuiz);
 router.get("/reports", sendReport);
 
@@ -21,6 +18,5 @@ router.get("/reports", sendReport);
 router.post("/register", register);
 router.post("/login", login);
 router.get("/logout", logout);
-router.get("/me", isAuthenticated, getMyProfile);
 
 export default router;

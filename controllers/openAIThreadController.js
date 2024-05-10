@@ -50,8 +50,8 @@ const callAssistant = async (data) => {
       nv: "0.030000000"
       vasc: "0.0"
       _inference: "dummy data"
-  } (Ignore this data this is the format)
-  ${data}(This is the data you should focus on here)`,
+  }
+  (This is the data you should focus on here)`,
   });
   // get thread op
   await waitForCompletion(run.status, run.id, thread.id);

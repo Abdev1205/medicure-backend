@@ -14,18 +14,6 @@ const schema = new mongoose.Schema({
     type : String,
     required : true
   },
-  subjects: [
-    {
-      subjectName: String,
-      Arena: Number,
-      level: [
-        {
-          type: Number,
-          score: Number,
-        },
-      ],
-    },
-  ],
   createdAt: {
     type: Date,
     default: Date.now,
